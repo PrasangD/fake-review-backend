@@ -1,0 +1,22 @@
+version: "3.3"
+services:
+    app-backend:
+        # build:
+        #     context: .
+        #     dockerfile: nginx/Dockerfile
+        volumes:
+        - ./dist:/usr/share/nginx/html
+        image: app_backend
+        container_name: backend
+        restart: always
+        ports:
+            - 5000:5000
+    app-frontend:
+        # build: /
+        image: macroplan
+        container_name: frontend
+        restart: always
+        ports:
+            - 4200:4200
+        expose:
+            - "4200"
